@@ -60,9 +60,10 @@ How many measurements are larger than the previous measurement?
       .map parseFloat
 
     countIncreases = (arr=[], inc=0)->
-      while arr.length
-        [x, arr...] = arr
-        inc += 1 if x < arr[0]
+      while arr.length >= 2
+        [a, b, ...] = arr
+        inc += 1 if a < b
+        arr.shift()
       inc
 
 
