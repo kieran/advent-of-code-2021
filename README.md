@@ -20,5 +20,5 @@ i/ *   O   O   * \i
 ## Quick Links
 
 | day | title | p1 | p2 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | 1   | Sonar Sweep             | [1️⃣](day-01/1.litcoffee)         | [2️⃣](day-01/2.litcoffee)         |
