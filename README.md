@@ -22,3 +22,4 @@ i/ *   O   O   * \i
 | day | title | p1 | p2 |
 | --- | --- | --- | --- |
 | 1   | Sonar Sweep             | [1️⃣](day-01/1.litcoffee)         | [2️⃣](day-01/2.litcoffee)         |
+| 2   | Dive!                   | [1️⃣](day-02/1.litcoffee)         | [2️⃣](day-02/2.litcoffee)         |
