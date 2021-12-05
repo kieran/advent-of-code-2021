@@ -25,3 +25,4 @@ i/ *   O   O   * \i
 | 2   | Dive!                   | [1️⃣](day-02/1.litcoffee)         | [2️⃣](day-02/2.litcoffee)         |
 | 3   | Binary Diagnostic       | [1️⃣](day-03/1.litcoffee)         | [2️⃣](day-03/2.litcoffee)         |
 | 4   | Giant Squid             | [1️⃣](day-04/1.litcoffee)         | [2️⃣](day-04/2.litcoffee)         |
+| 5   | Hydrothermal Venture    | [1️⃣](day-05/1.litcoffee)         | [2️⃣](day-05/2.litcoffee)         |
