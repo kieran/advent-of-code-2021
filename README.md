@@ -28,3 +28,4 @@ i/ *   O   O   * \i
 | 5   | Hydrothermal Venture    | [1️⃣](day-05/1.litcoffee)         | [2️⃣](day-05/2.litcoffee)         |
 | 6   | Lanternfish             | [1️⃣](day-06/1.litcoffee)         | [2️⃣](day-06/2.litcoffee)         |
 | 7   | The Treachery of Whales | [1️⃣](day-07/1.litcoffee)         | [2️⃣](day-07/2.litcoffee)         |
+| 8   | Seven Segment Search    | [1️⃣](day-08/1.litcoffee)         | [2️⃣](day-08/2.litcoffee)         |
