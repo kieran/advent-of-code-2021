@@ -29,3 +29,4 @@ i/ *   O   O   * \i
 | 6   | Lanternfish             | [1️⃣](day-06/1.litcoffee)         | [2️⃣](day-06/2.litcoffee)         |
 | 7   | The Treachery of Whales | [1️⃣](day-07/1.litcoffee)         | [2️⃣](day-07/2.litcoffee)         |
 | 8   | Seven Segment Search    | [1️⃣](day-08/1.litcoffee)         | [2️⃣](day-08/2.litcoffee)         |
+| 9   | Smoke Basin             | [1️⃣](day-09/1.litcoffee)         | [2️⃣](day-09/2.litcoffee)         |
