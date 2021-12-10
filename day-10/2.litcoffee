@@ -55,7 +55,7 @@ Find the completion string for each incomplete line, score the completion string
 
     complete = (line='')->
       stack=[]
-      for char in line.split ''
+      for char in line
         switch char
           when '[', '(', '{', '<'
             stack.push char
@@ -68,7 +68,7 @@ Find the completion string for each incomplete line, score the completion string
           when '>'
             return false unless stack.pop() is '<'
 
-      (pairs[c] for c in stack by -1)
+      (pairs[c] for c in stack by -1).join ''
 
     pairs =
       '(': ')'
@@ -82,7 +82,7 @@ Find the completion string for each incomplete line, score the completion string
       '}': 3
       '>': 4
 
-    score = (autocomplete=[])->
+    score = (autocomplete='')->
       cur=0
       for char in autocomplete
         cur *= 5
@@ -104,17 +104,17 @@ Find the completion string for each incomplete line, score the completion string
 
 ## Tests
 
-    assert.equal '}}]])})]',  complete('[({(<(())[]>[[{[]{<()<>>').join('')
-    assert.equal ')}>]})',    complete('[(()[<>])]({[<{<<[]>>(').join('')
-    assert.equal '}}>}>))))', complete('(((({<>}<{<{<>}{[]{[]{}').join('')
-    assert.equal ']]}}]}]}>', complete('{<[[]]>}<{[{[{[]{()[[[]').join('')
-    assert.equal '])}>',      complete('<{([{{}}[<[[[<>{}]]]>[]]').join('')
+    assert.equal '}}]])})]',  complete '[({(<(())[]>[[{[]{<()<>>'
+    assert.equal ')}>]})',    complete '[(()[<>])]({[<{<<[]>>('
+    assert.equal '}}>}>))))', complete '(((({<>}<{<{<>}{[]{[]{}'
+    assert.equal ']]}}]}]}>', complete '{<[[]]>}<{[{[{[]{()[[[]'
+    assert.equal '])}>',      complete '<{([{{}}[<[[[<>{}]]]>[]]'
 
-    assert.equal 288957,  score '}}]])})]'.split ''
-    assert.equal 5566,    score ')}>]})'.split ''
-    assert.equal 1480781, score '}}>}>))))'.split ''
-    assert.equal 995444,  score ']]}}]}]}>'.split ''
-    assert.equal 294,     score '])}>'.split ''
+    assert.equal 288957,  score '}}]])})]'
+    assert.equal 5566,    score ')}>]})'
+    assert.equal 1480781, score '}}>}>))))'
+    assert.equal 995444,  score ']]}}]}]}>'
+    assert.equal 294,     score '])}>'
 
     input = """
       [({(<(())[]>[[{[]{<()<>>

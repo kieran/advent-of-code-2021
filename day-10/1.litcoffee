@@ -70,7 +70,7 @@ Find the first illegal character in each corrupted line of the navigation subsys
 
     validate = (line='')->
       stack=[]
-      for char in line.split ''
+      for char in line
         switch char
           when '[', '(', '{', '<'
             stack.push char
