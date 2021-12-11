@@ -31,3 +31,4 @@ i/ *   O   O   * \i
 | 8   | Seven Segment Search    | [1️⃣](day-08/1.litcoffee) | [2️⃣](day-08/2.litcoffee) |
 | 9   | Smoke Basin             | [1️⃣](day-09/1.litcoffee) | [2️⃣](day-09/2.litcoffee) |
 | 10  | Syntax Scoring          | [1️⃣](day-10/1.litcoffee) | [2️⃣](day-10/2.litcoffee) |
+| 11  | Dumbo Octopus           | [1️⃣](day-11/1.litcoffee) | [2️⃣](day-11/2.litcoffee) |
