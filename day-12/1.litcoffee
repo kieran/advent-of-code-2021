@@ -49,18 +49,18 @@ Note that in this cave system, cave d is never visited by any path: to do so, ca
 
 Here is a slightly larger example:
 
-```plain
-dc-end
-HN-start
-start-kj
-dc-start
-dc-HN
-LN-dc
-HN-end
-kj-sa
-kj-HN
-kj-dc
-```
+    input2 = """
+      dc-end
+      HN-start
+      start-kj
+      dc-start
+      dc-HN
+      LN-dc
+      HN-end
+      kj-sa
+      kj-HN
+      kj-dc
+    """
 
 The 19 paths through it are as follows:
 
@@ -88,26 +88,26 @@ start,kj,dc,end
 
 Finally, this even larger example has 226 paths through it:
 
-```plain
-fs-end
-he-DX
-fs-he
-start-DX
-pj-DX
-end-zg
-zg-sl
-zg-pj
-pj-he
-RW-he
-fs-DX
-pj-RW
-zg-RW
-start-pj
-he-WI
-zg-he
-pj-fs
-start-RW
-```
+    input3 = """
+      fs-end
+      he-DX
+      fs-he
+      start-DX
+      pj-DX
+      end-zg
+      zg-sl
+      zg-pj
+      pj-he
+      RW-he
+      fs-DX
+      pj-RW
+      zg-RW
+      start-pj
+      he-WI
+      zg-he
+      pj-fs
+      start-RW
+    """
 
 How many paths through this cave system are there that visit small caves at most once?
 
@@ -129,33 +129,39 @@ How many paths through this cave system are there that visit small caves at most
     edges = (node_pairs=[])->
       ret = {}
       for [n1, n2] in node_pairs
+        # both forwards ->
         ret[n1] ?= []
         ret[n1].push n2
+        # and backwards <-
         ret[n2] ?= []
         ret[n2].push n1
       ret
 
+
     findPaths = (edges, path=['start'])->
       paths = []
-      [..., last] = path
+      [..., tail] = path
       seen = path.filter (node)-> node.match /[a-z]+/
 
+      # possible next nodes
+      # (ignore those we've seen already)
       nexts = \
-      edges[last]
+      edges[tail]
       .filter (node)->
         node not in seen
-
-      return null unless nexts.length
 
       for next in nexts
         p = [path..., next]
         switch next
           when 'end'
+            # we've found the end
             paths.push p.join ','
           else
+            # recurse one step
             paths.push findPaths edges, p
 
-      flatten paths.filter (p)-> p
+      # remove empty paths (no way forward)
+      flatten paths
 
     numPaths = (edges=[])->
       findPaths edges
@@ -164,7 +170,9 @@ How many paths through this cave system are there that visit small caves at most
 
 ## Tests
 
-    assert.equal 10, numPaths edges parse input
+    assert.equal 10,  numPaths edges parse input
+    assert.equal 19,  numPaths edges parse input2
+    assert.equal 226, numPaths edges parse input3
 
 
 ## Run

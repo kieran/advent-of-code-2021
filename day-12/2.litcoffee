@@ -65,35 +65,47 @@ Given these new rules, how many paths through this cave system are there?
     edges = (node_pairs=[])->
       ret = {}
       for [n1, n2] in node_pairs
+        # both forwards ->
         ret[n1] ?= []
         ret[n1].push n2
+        # and backwards <-
         ret[n2] ?= []
         ret[n2].push n1
       ret
 
     findPaths = (edges, path=['start'], dupeUsed=false)->
       paths = []
-      [..., last] = path
+      [..., tail] = path
       seen = path.filter (node)-> node.match /[a-z]+/
 
+      # possible next nodes
+      # ignore those we've seen already
+      # unless we've still got a dupe to use
       nexts = \
-      edges[last]
+      edges[tail]
       .filter (node)->
-        not dupeUsed or node not in seen
-
-      return null unless nexts.length
+        # allow all posibilities if
+        # we can still use duplicates
+        return true unless dupeUsed
+        # if not, filter out the nodes we've seen
+        node not in seen
 
       for next in nexts
         p = [path..., next]
         switch next
           when 'start'
+            # never go back to the start
             continue
           when 'end'
+            # we've found the end
             paths.push p.join ','
           else
+            # recurse one step, potentially
+            # marking this branch as `dupeUsed`
             paths.push findPaths edges, p, dupeUsed or next in seen
 
-      flatten paths.filter (p)-> p
+      # remove empty paths (no way forward)
+      flatten paths
 
     numPaths = (edges=[])->
       findPaths edges
