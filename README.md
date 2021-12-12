@@ -32,3 +32,4 @@ i/ *   O   O   * \i
 | 9   | Smoke Basin             | [1️⃣](day-09/1.litcoffee) | [2️⃣](day-09/2.litcoffee) |
 | 10  | Syntax Scoring          | [1️⃣](day-10/1.litcoffee) | [2️⃣](day-10/2.litcoffee) |
 | 11  | Dumbo Octopus           | [1️⃣](day-11/1.litcoffee) | [2️⃣](day-11/2.litcoffee) |
+| 12  | Passage Pathing         | [1️⃣](day-12/1.litcoffee) | [2️⃣](day-12/2.litcoffee) |
