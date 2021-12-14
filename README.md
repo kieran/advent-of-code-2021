@@ -34,3 +34,4 @@ i/ *   O   O   * \i
 | 11  | Dumbo Octopus           | [1️⃣](day-11/1.litcoffee) | [2️⃣](day-11/2.litcoffee) |
 | 12  | Passage Pathing         | [1️⃣](day-12/1.litcoffee) | [2️⃣](day-12/2.litcoffee) |
 | 13  | Transparent Origami     | [1️⃣](day-13/1.litcoffee) | [2️⃣](day-13/2.litcoffee) |
+| 14  | Extended Polymerization | [1️⃣](day-14/1.litcoffee) | [2️⃣](day-14/2.litcoffee) |
