@@ -53,45 +53,45 @@ What is the lowest total risk of any path from the top left to the bottom right?
         .split ''
         .map parseFloat
 
-    safestPath = (map=[])->
+    neighbours = (y=0,x=0)->
+      [
+        [y, x+1]
+        [y, x-1]
+        [y+1, x]
+        [y-1, x]
+      ]
+
+    safestPath = (map=[], y=0, x=0, risk=0)->
       goal_y = map.length - 1
       goal_x = map[0].length - 1
 
-      open = [
-        y: 0
-        x: 0
-        risk: 0
-      ]
-      opened = {'0,0': 0}
-      closed = {}
+      open = [{y, x, risk}]
+      seen = (new Set).add '0,0'
 
-      while true
+      loop
+        # evaluate the next lowest risk cell
         {y, x, risk} = open.shift()
-        closed["#{y},#{x}"] = risk
 
+        # if we've found the goal, return the total risk
         return risk if y is goal_y and x is goal_x
 
-        # search the  neighbouring cells
-        neighbours = [
-          [y, x+1]
-          [y, x-1]
-          [y+1, x]
-          [y-1, x]
-        ]
-
-        next = \
-        neighbours
+        # search the neighbouring cells
+        neighbours y, x
         .filter ([ny, nx])->
           map[ny]?[nx]
         .filter ([ny, nx])->
-          not closed["#{ny},#{nx}"]?
-        .filter ([ny, nx])->
-          not opened["#{ny},#{nx}"]?
+          not seen.has "#{ny},#{nx}"
         .forEach ([ny, nx])->
-          opened["#{ny},#{nx}"] = risk + map[ny][nx]
+          # mark the cell a seen
+          seen.add "#{ny},#{nx}"
+          # and into the open pile with the new total risk
           open.push y: ny, x: nx, risk: risk + map[ny][nx]
 
+        # sort the open pile
+        # if this was bigger we'd have to use a
+        # fancy data structure like a min-heap
         open.sort (a,b)-> a.risk - b.risk
+
 
 
 ## Tests
