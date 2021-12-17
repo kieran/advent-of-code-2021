@@ -33,23 +33,25 @@ How many distinct initial velocity values cause the probe to be within the targe
 
     sort = (arr=[])-> arr.sort(); arr
 
+    range = (start, end)->
+      [start, end] = sort [start, end].map parseFloat
+      [start..end]
+
     parse = (text='')->
       PAT = /x=(-?\d+)\.\.(-?\d+), y=(-?\d+)\.\.(-?\d+)/
       [_, x1, x2, y1, y2] = text.match PAT
 
-      xs = sort [x1, x2].map parseFloat
-      ys = sort [y1, y2].map parseFloat
-
       [
-        [xs[0]..xs[1]]
-        [ys[0]..ys[1]]
+        range x1, x2
+        range y1, y2
       ]
 
     firingSolutions = (xs=[], ys=[])->
-      # find the largest Y step we can consider
+      # find the largest X and Y step we can consider
       max_vy = Math.max ...ys.map Math.abs
       max_vx = Math.max ...xs
 
+      # test every combination
       ret = []
       for vx in [0..max_vx]
         for vy in [max_vy..-max_vy]
