@@ -37,3 +37,4 @@ i/ *   O   O   * \i
 | 14  | Extended Polymerization | [1️⃣](day-14/1.litcoffee) | [2️⃣](day-14/2.litcoffee) |
 | 15  | Chiton                  | [1️⃣](day-15/1.litcoffee) | [2️⃣](day-15/2.litcoffee) |
 | 16  | Packet Decoder          | [1️⃣](day-16/1.litcoffee) | [2️⃣](day-16/2.litcoffee) |
+| 17  | Trick Shot              | [1️⃣](day-17/1.litcoffee) | [2️⃣](day-17/2.litcoffee) |
